@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">YMvRxAndroidDemo</string>
+    <string name="main_home">首页</string>
+    <string name="main_dyn">动态</string>
+    <string name="main_mine">我的</string>
+    <string name="exit_app">再按一次退出程序</string>
+    <string name="loadMore_tips">数据加载中…</string>
+    <string name="noMore_tips">没有更多了~</string>
+    <string name="load_more_info">数据加载中</string>
+    <string name="load_more_fail">加载失败，点击重试</string>
+    <string name="net_error_retry">網絡異常，點擊屏幕重試</string>
+    <string name="net_fail_retry">加載失敗，點擊屏幕重試</string>
+    <string name="no_data">該模塊暫時還沒有數據哦</string>
+    <string name="double_exit">再按一次退出</string>
+</resources>

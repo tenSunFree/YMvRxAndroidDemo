@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.home.ymvrxandroiddemo"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    // 使用Kotlin實驗特性
+    androidExtensions { experimental = true }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    ext.dependencies = { libraryArray ->
+        for (String library : libraryArray) {
+            def detailArray = library.split(": ")
+            def configurations = 0
+            def libraryName = 1
+            switch (detailArray[configurations]) {
+                case "implementation":
+                    implementation detailArray[libraryName]
+                    break
+                case "kapt":
+                    kapt detailArray[libraryName]
+                    break
+            }
+        }
+    }
+
+    // material
+    dependencies(rootProject.ext.material)
+
+    // mvrx
+    dependencies(rootProject.ext.mvrx)
+
+    // lottie
+    dependencies(rootProject.ext.lottie)
+
+    // retrofit
+    dependencies(rootProject.ext.retrofit)
+
+    // epoxy
+    dependencies(rootProject.ext.epoxy)
+
+    // androidUtilCode
+    dependencies(rootProject.ext.androidUtilCode)
+
+    // glide
+    dependencies(rootProject.ext.glide)
+
+    // immersionBar
+    dependencies(rootProject.ext.immersionBar)
+
+    // gson
+    dependencies(rootProject.ext.gson)
+
+    // okhttp
+    dependencies(rootProject.ext.okhttp)
+
+    // multidex
+    dependencies(rootProject.ext.multidex)
+
+    // androidAutoSize
+    dependencies(rootProject.ext.androidAutoSize)
+}
+
